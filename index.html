@@ -25,9 +25,9 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus" id="negetiv" ></i></button>
-                           <input type="text" class="form-control text-center" id="cruntvalue" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus" id="singplus"></i></button>
+                           <button class="btn btn-default"><i class="fas fa-minus" id="minus" onclick="addOne();" ></i></button>
+                           <input type="text" class="form-control text-center" id="item" value="1">
+                           <button class="btn btn-default"><i class="fas fa-plus" onclick="addOne();"></i></button>
                         </div>
                         <h5>$<span id="cost">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item" id="desply">
@@ -79,68 +79,22 @@
          </div>
       </div>
    </section>
-
-   <script>
-     
-
-     function name(singplus,cruntvalue) {
-          document.getElementById("singplus").addEventListener("click", function() {
-        const crunt = document.getElementById("cruntvalue").value;
-        const newValue = parseInt(crunt) + 1;
-        document.getElementById("cruntvalue").value=newValue;
-      })
-      }
-      name(singplus,cruntvalue);
-
-      function test(negetiv,cruntvalue) {
-          document.getElementById("negetiv").addEventListener("click", function(){
-         const cruntValue = document.getElementById("cruntvalue").value;
-        const newValue = parseInt(cruntValue) - 1;
-        const res =document.getElementById("cruntvalue").value=newValue;
-       if (res==-1){
-         document.getElementById("cruntvalue").value=0;
-       }
-      })
-      }
-      test(negetiv,cruntvalue);
-
-
-         
- 
-      function thard(singplus,cost) {
-         document.getElementById("singplus").addEventListener("click", function() {
-        const cost = document.getElementById("cost").innerText;
-        const newCost = parseInt(cost) + 1219;
-        document.getElementById("cost").innerText=newCost;
-      })
-
-      }
-      thard(singplus,cost);
-
-      function forth(negetiv,cost) {
-
-         document.getElementById("negetiv").addEventListener("click", function() {
-        const costy = document.getElementById("cost").innerText;
-        const newCost = parseInt(costy) - 1219;
-        const re=document.getElementById("cost").innerText=newCost;
-        if (re==-1219){
-         document.getElementById("cost").innerText=0;
-        }
-      })
-
-      }
-      forth(negetiv,cost);
-
-
-      document.getElementById("desply").addEventListener("click", function() {
-         document.getElementById("chart-revmoved").style.display="none";
-      })
-
+   <script>   
+   
+      function addOne(minus) {
       
+      let pItem = document.getElementById('item').value;
+      const parseItem = parseInt(pItem);
+      const newItem =parseItem + 1;
+      document.getElementById('item').value = newItem;
+      const costAdd = document.getElementById("cost").innerText;
+      const newCost = parseInt(costAdd);
+      let totalCost = 1219  * newItem;
+      document.getElementById("cost").innerText = totalCost;
+       
 
-
-
-
+    }
+    
    </script>
 </body>
 
