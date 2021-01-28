@@ -25,9 +25,13 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus" id="minus" onclick="addOne();" ></i></button>
+
+                           <button onclick="addOne(false)"  class="btn btn-default"><i class="fas fa-minus"  ></i></button>
+
                            <input type="text" class="form-control text-center" id="item" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus" onclick="addOne();"></i></button>
+
+                           <button onclick="addOne(true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
                         </div>
                         <h5>$<span id="cost">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item" id="desply">
@@ -43,14 +47,15 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
 
-                           <input type="text" class="form-control text-center" value="1" id="sevelu">
+                           <button onclick="addTow(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
 
-                           <button class="btn btn-default"><i id="second" class="fas fa-plus"  ></i></button>
+                           <input type="text" class="form-control text-center" value="1" id="caseadd">
+
+                           <button onclick="addTow(true)" class="btn btn-default"><i class="fas fa-plus"  ></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5 >$ <span id="casedoller" >59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -79,22 +84,43 @@
          </div>
       </div>
    </section>
-   <script>   
-   
-      function addOne(minus) {
-      
+   <script> 
+
+      function addOne(some) {
       let pItem = document.getElementById('item').value;
       const parseItem = parseInt(pItem);
-      const newItem =parseItem + 1;
+      let newItem =parseItem;
+      if(some == true ){
+         newItem = parseItem + 1;
+      }
+      if(some == false && newItem > 0 ){
+         newItem = parseItem - 1;
+      };
       document.getElementById('item').value = newItem;
       const costAdd = document.getElementById("cost").innerText;
       const newCost = parseInt(costAdd);
       let totalCost = 1219  * newItem;
-      document.getElementById("cost").innerText = totalCost;
-       
+      document.getElementById("cost").innerText = totalCost;   
+   }
 
-    }
-    
+   
+   function addTow(tow) {
+      let caseItem = document.getElementById('caseadd').value;
+      const parseCaseItem = parseInt(caseItem);
+      let CasenewItem =parseCaseItem;
+      if(tow == true){
+         CasenewItem = parseCaseItem + 1;
+      }
+      if(tow == false && CasenewItem > 0){
+         CasenewItem = parseCaseItem - 1;
+      }
+      document.getElementById('caseadd').value = CasenewItem;
+      const caseCostadd = document.getElementById("casedoller").innerText;
+      const newCase = parseInt(caseCostadd);
+      let caseTotalCost = 59  * CasenewItem; 
+      document.getElementById("casedoller").innerText = caseTotalCost;   
+   }
+  
    </script>
 </body>
 
